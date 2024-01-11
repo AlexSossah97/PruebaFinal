@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de moneda</title>
+</head>
+<body>
+    <h1>Calculadora de moneda</h1>
+
+    <form th:action="@{/calcular}" method="post">
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" name="fecha" placeholder="Ingresa la fecha">
+
+        <button type="submit">Calcular</button>
+    </form>
+
+    <div th:if="${resultado != null}">
+        <h2>Resultado:</h2>
+        <p th:text="${resultado}"></p>
+    </div>
+</body>
+</html>
+
