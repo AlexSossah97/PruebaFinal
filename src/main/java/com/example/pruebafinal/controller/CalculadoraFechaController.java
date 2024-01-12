@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.reactive.function.client.WebClient;
-
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -21,7 +19,7 @@ public class CalculadoraFechaController {
 
     private static final Logger logger = LoggerFactory.getLogger(CalculadoraFechaController.class);
 
-    @Value("${api.url}") // url de la api desde la propierties
+    @Value("${api.url}") //url de la api desde la propierties
     private String apiUrl;
 
     private final WebClient webClient;
@@ -54,7 +52,7 @@ public class CalculadoraFechaController {
             logger.info("Datos fecha hoy: " + fechaHoy);
             String fechaHoyStr = fechaHoy.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
 
-            //realiza la llamada a la API
+            //Realiza la llamada a la API
             String response = webClient.get()
                 .uri("/api/uf/{fechahoy}",fechaHoyStr) //ruta del end point de la api
                 .retrieve()

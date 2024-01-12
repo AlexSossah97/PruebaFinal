@@ -14,12 +14,11 @@ public class IndexController {
 
     private final WebClient webClient;
 
+    //Constructor que inicializa el controlador con WebClient
     public IndexController(WebClient.Builder webClientBuilder) {
         this.webClient = webClientBuilder.baseUrl("https://mindicador.cl/").build();
     }
-
-
-
+    //Maneja solicitudes GET
     @GetMapping("/llamar-api")
     @ResponseBody
     public String llamarAPI() {
